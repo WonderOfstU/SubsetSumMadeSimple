@@ -1,0 +1,40 @@
+# 代码文件说明
+包括文件名称、功能、 输入的参数及格式、 输出文件名称及格式
+
+check_env.py    打印当前环境
+generation.py   生成用于测试的数据文件，存入data文件夹中
+SubSetSumMadeSimple_FFT_DivideAndConquer.py SubSetSumMadeSimple算法实现，包含了其中每个函数的使用实例以及正确性验证实例
+SubSetSumOriginal_dp.py 传统dp方法实现，包含了使用实例
+exec.py 调用上三个py文件中的相关函数，进行实验测试，并输出测试结果文件（txt和png）至experiments文件夹中
+更详细的说明请查看代码中的注释
+运行python程序，如exec.py后会在所在的src文件夹下自动创建__pycache__文件夹，这里打包提交时将其清除了，若再次运行代码则会再次创建，属于python解释器的正常行为
+
+
+# 数据文件说明
+包括文件名称、来源、格式及主要规模参数
+
+数据文件个数取决于exec中调用generation中生成样例的函数时传递的size参数
+SubsetSum_contrast-self_generated-x-n-u.txt 对比SubSetSumMadeSimple和dp的运行时间的数据文件
+SubsetSum_TimeComplexity_test-self_generated-x-n-u.txt 分析SubSetSumMadeSimple时间复杂度的数据文件
+以上为两类数据文件，均为self_generated，即通过给定参数调用generation.py中的相应函数生成的
+generation.py中函数的参数为size，即测试点数量，对应x的最大值，其中x表示第x个数据文件
+数据文件中的n和u即对应SubsetSum问题的集合中元素数量n以及目标和u
+数据文件格式为第一行两个数：n u；第二行n个数，即随机生成的集合的中元素
+
+
+# 结果文件说明
+包括输出的文件名称、使用的应用程序名称、调用的函数名称、参数设置及文件格式等。
+
+Run_time_contrast_between_MadeSimple_and_dp.txt 即dp和SubsetSumMadeSimple算法的运行时间对比
+
+Time_complexity_analysis_of_MadeSimple_total-size.txt SubsetSumMadeSimple算法时间复杂度的验证，每行对应测试数据文件的运行时间
+Time_complexity_analysis_of_MadeSimple_total-size.png SubsetSumMadeSimple算法时间复杂度的验证，绘制的图像（线性回归）
+以上两个文件的size表示测试点数量，对应数据文件
+
+Time_complexity_analysis_of_MadeSimple_separate_constn=n_u-size.txt SubsetSumMadeSimple算法时间复杂度验证，关于u，每行对应测试点的运行时间
+Time_complexity_analysis_of_MadeSimple_separate_constn=n_u-size.png SubsetSumMadeSimple算法时间复杂度验证，关于u，一元非线性回归作图
+Time_complexity_analysis_of_MadeSimple_separate_constu=u_n-size.txt SubsetSumMadeSimple算法时间复杂度验证，关于n，每行对应测试点的运行时间
+Time_complexity_analysis_of_MadeSimple_separate_constu=u_n-size.png SubsetSumMadeSimple算法时间复杂度验证，关于n，一元非线性回归作图
+Time_complexity_analysis_of_MadeSimple_separate_n_u_anglex-step_3d.png 二元非线性回归所做的运行时间关于n和u的曲面，共x个视角，step_3d**2个测试点
+Time_complexity_analysis_of_MadeSimple_separate_n_u-step_3d.txt 三维图对应的每个测试点的运行时间，以n为主展开二维坐标而逐行排列
+以上的六种文件对应的测试的数据基于SubsetSum_TimeComplexity_test-self_generated-x-n-u.txt中的最后一个文件（x最大的）而生成，生成过程在exec.py中，由于完全由自定义的测试点数量size_n、size_u、step_3d以及所基于的文件而确定地生成，故不再将其测试数据记录到data文件夹中。
